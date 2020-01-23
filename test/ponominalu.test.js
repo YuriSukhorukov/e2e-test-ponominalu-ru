@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const devices = require('puppeteer/DeviceDescriptors');
 var fs = require('fs');
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 999999;
@@ -6,7 +7,7 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 999999;
 let browser;
 let page;
 
-const headless = true;
+const headless = false;
 
 describe('Ponominalu.ru', () => {
   beforeAll(async () => {
@@ -46,7 +47,7 @@ describe('Ponominalu.ru', () => {
     const url = 'https://ponominalu.ru/';
     const selector_a = 'a[href="/afisha"]';
     const selector_title = 'title';
-    const timeout = 3000000
+    const timeout = 3000000;
     const viewport = {
       width: 1280,
       height: 720
@@ -68,6 +69,38 @@ describe('Ponominalu.ru', () => {
 
     expect(title1 !== title2).toBe(true);
   });
+
+  // it('iphone X', async () => {
+  //   const url = 'https://ponominalu.ru/';
+  //   const timeout = 3000000;
+  //   const selector_a_categories = 'a[class="pn-nav-bar__menu-link"]';
+  //   const selector_a_concerts = 'a[href="/category/concerts"]';
+  //   const selector_div_event_list = 'a[/href="/event/atl"]';
+  //   const selector_a_event_card = 'a[class="pn-card__name pn-card__link"]';
+  //   const selector_button_ticket= 'button[class="pn-event__afisha-btn pn-event__afisha-btn_red"]';
+  //   const selector_div_pwn = 'div[class="widget-scheme"]';
+
+  //   await page.emulate(devices['iPhone X']);
+  //   await page.goto(url, {timeout});
+
+  //   await page.waitForSelector(selector_a_categories);
+  //   await page.$eval(selector_a_categories, el => el.click());
+  //   await page.waitForSelector(selector_a_concerts);
+  //   await page.$eval(selector_a_concerts, el => el.click());
+  //   await page.waitForSelector(selector_div_event_list);
+  //   await page.$eval(selector_div_event_list, el => {
+  //     el.scrollIntoView();
+  //   });
+  //   await page.$eval(selector_div_event_list, el => el.click());
+  //   await page.waitForSelector(selector_button_ticket);
+  //   await page.$eval(selector_button_ticket, el => el.click());
+  //   await page.waitForSelector(selector_div_pwn, {timeout});
+
+  //   await page.screenshot({
+  //       path: './screenshots/iphone-x-ticket.png',
+  //       fullPage: true
+  //   });
+  // });
 
   afterAll(async () => {
     await page.close();
