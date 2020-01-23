@@ -1,0 +1,24 @@
+{
+  "name": "e2e-test-ponominalu-ru",
+  "version": "0.0.1",
+  "description": "e2e test",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuriSukhorukov/e2e-test-ponominalu-ru.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YuriSukhorukov/e2e-test-ponominalu-ru/issues"
+  },
+  "homepage": "https://github.com/YuriSukhorukov/e2e-test-ponominalu-ru#readme",
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^2.0.0"
+  }
+}
